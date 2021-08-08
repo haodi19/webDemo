@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #title{
+            color:red;
+            font-size: 60px;
+            text-align: center;
+            line-height:70px;
+        }
+        #x{
+            height: 75px;
+            width: 400px;
+            border: 2px solid red;
+            margin: auto;
+            margin-top: 20px;
+        }
+        #t{
+            margin: auto;
+        }
+        .left{
+            height: 30px;
+            text-align: right;
+        }
+        .right{
+            height: 30px;
+            padding-left: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type='submit']{
+            margin-top: 10px;
+            margin-left: 100px;
+        }
+        .checkbox{
+            padding-left: 10px;
+            box-sizing: border-box;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+<div id="x"><div id="title"> 这是一个标题 </div></div><br>
+<form action="http://localhost:8080/web/loginServlet" method="post" id="form">
+    <table id="t" >
+        <tr>
+            <td class="left"><label for="u">用户名</label></td>
+            <td class="right"><input type="text" name="username" placeholder="请输入用户名" id="u"></td>
+
+        </tr>
+        <tr>
+        <td class="left"><label for="p">密码 </label></td>
+        <td class="right"><input type="password" name="password" placeholder="请输入密码" id="p"></td>
+        </tr>
+        <tr >
+            <td class="left">选项</td>
+            <td class="checkbox"><input type="checkbox" name="choice" value="选项1" id="c1">选项1
+                <input type="checkbox" name="choice" value="选项2" id="c2">选项2</td>
+            <td><a href="/web/downloadServlet?filename=demoImage.jpg">资源下载</a></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+    <input type="submit" value="登录" id="submit" >
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+<foot>
+    <script>
+        var submit = document.getElementById("submit");
+        var exp=/^[a-zA-Z0-9_]{6,16}$/;
+        var exp2=/^\w{6,16}$/;
+        var form = document.getElementById("form");
+        submit.onclick=function () {
+            var password=document.getElementById("p").value;
+            if(exp2.test(password)){
+                alert(true)
+            }else {
+                alert(false)
+            }
+        }
+    </script>
+</foot>
+</html>
